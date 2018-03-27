@@ -2,6 +2,7 @@
 
 <?php
 $xml = file_get_contents('user.xml');
+$xml = simplexml_load_string($xml);
 
 ?>
 <!doctype html>
@@ -16,10 +17,21 @@ $xml = file_get_contents('user.xml');
 <body>
 <?php
 echo "<pre>";
-print_r($xml);
-//foreach ($xml as $index => $item) {
-//    echo "<p>$index: $item</p>";
-//}
+//var_dump($xml);
+//print_r($xml);
+foreach ($xml->user as $index => $item) {
+    $name = $item['name'];
+    $cities = $item['citys'];
+            echo "<p>$name</p>";
+
+    }
+//    var_dump($val);
+//    foreach ($val as $k => $v) {
+//        echo "<p>$k: $v</p>";
+//    }
+
+
+
 
 ?>
 
